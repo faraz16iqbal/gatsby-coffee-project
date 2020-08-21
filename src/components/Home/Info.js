@@ -19,8 +19,7 @@ export default function Info() {
               libero. Neque tempora voluptatum aliquid hic quidem eius
               cupiditate sit corrupti, eum minus exercitationem repellendus
               aperiam error odio aliquam possimus voluptatem quas quisquam saepe
-              id dolorum. Voluptatum consectetur aut eligendi aliquid odio
-              nesciunt.
+              id dolorum.
             </p>
             <Link to="/about/">
               <button className="btn text-uppercase btn-yellow">
