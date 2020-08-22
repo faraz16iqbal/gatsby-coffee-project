@@ -36,7 +36,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-sm bg-light navbar-light">
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand navicon">
           <img src={logo} alt="logo" />
           {/* https://www.iconfinder.com/icons/185113/coffee_streamline_icon
                     Creative Commons (Attribution 3.0 Unported);
@@ -53,7 +53,7 @@ export default class Navbar extends Component {
           <ul className="navbar-nav mx-auto">
             {this.state.links.map(link => {
               return (
-                <li key={link.id} className="nav-item">
+                <li key={link.id} className="nav-item navlink">
                   <Link to={link.path} className="nav-link text-capitalize">
                     {link.text}
                   </Link>
@@ -61,7 +61,7 @@ export default class Navbar extends Component {
               )
             })}
             <li className="nav-item ml-sm-5">
-              <FaCartArrowDown className="cart-icon" />
+              <FaCartArrowDown className="cart-icon snipcart-checkout" />
             </li>
           </ul>
         </div>

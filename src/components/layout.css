@@ -33,7 +33,20 @@ h6 {
 .cart-icon {
   cursor: pointer;
   color: var(--mainYellow);
-  font-size: 2rem;
+  font-size: 3rem;
+}
+
+.navlink {
+  margin-right: 3rem;
+  font-size: 1.4rem;
+}
+
+.navlink:hover {
+  border-bottom: 1px solid;
+}
+
+.navicon {
+  margin-left: 2rem !important;
 }
 
 .default-background,
