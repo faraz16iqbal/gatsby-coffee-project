@@ -6,8 +6,12 @@ const getCategories = items => {
   let tempItems = items.map(items => {
     return items.node.category
   })
-  return Array.from(new Set(tempItems))
+  let tempCatergories = new Set(tempItems)
+  let categories = Array.from(tempCatergories)
+  categories = ["all", ...categories]
+  return categories
 }
+
 class Menu extends Component {
   constructor(props) {
     super(props)
@@ -19,6 +23,22 @@ class Menu extends Component {
     }
   }
 
+  handleItems = category => {
+    console.log("hello from class")
+    let tempItems = [...this.state.items]
+    if (category === "all") {
+      this.setState(() => {
+        return { coffeeItems: tempItems }
+      })
+    } else {
+      let items = tempItems.filter(({ node }) => node.category === category)
+      this.setState(() => {
+        console.log(items)
+        return { coffeeItems: items }
+      })
+    }
+  }
+
   render() {
     console.log(this.state.categories)
     if (this.state.items.length > 0) {
@@ -27,7 +47,21 @@ class Menu extends Component {
           <div className="container">
             <Title title="best of our menu" />
             <div className="row mb-5">
-              <div className="col">
+              <div className="col-10 mx-auto text-center">
+                {this.state.categories.map((category, index) => {
+                  return (
+                    <button
+                      type="button"
+                      key={index}
+                      className="btn btn-yellow text-capitalize m-3"
+                      onClick={() => {
+                        this.handleItems(category)
+                      }}
+                    >
+                      {category}
+                    </button>
+                  )
+                })}
                 {/* {} */}
                 {/* {} */}
                 <div className="row">
@@ -49,7 +83,7 @@ class Menu extends Component {
                               </h6>
                             </small>
                           </div>
-                          <p className="text-muted">
+                          <p className="text-muted text-left">
                             <small>{node.description.description}</small>
                           </p>
                         </div>
